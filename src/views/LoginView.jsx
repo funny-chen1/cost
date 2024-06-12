@@ -7,6 +7,7 @@ function Login() {
   const submit = async (value) => {
     const res = await login(value);
     if (res.data) {
+      console.log(res);
       setLocal("token", res.data.token);
       window.location.reload();
     } else {
