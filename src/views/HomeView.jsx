@@ -38,7 +38,7 @@ function Home() {
 
   const getBillList = async () => {
     const res = await getList(params);
-    console.log(res);
+
     res.data.list.forEach(value => {
       let expense = 0;
       let income = 0;
