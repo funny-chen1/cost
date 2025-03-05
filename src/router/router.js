@@ -29,6 +29,12 @@ const routes = [
         name: '账单详情',
         isAuth: true,
         element: lazy(() => import('../views/DetailView'))
+    },
+    {
+        path: '/note',
+        name: 'AI助手',
+        isAuth: true,
+        element: lazy(() => import('../views/NoteView'))
     }
 ];
 

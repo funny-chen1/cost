@@ -19,8 +19,8 @@ function Tab(params) {
       badge: Badge.dot,
     },
     {
-      key: "/todo",
-      title: "待办",
+      key: "/note",
+      title: "AI助手",
       icon: <UnorderedListOutline />,
       badge: "5",
     },

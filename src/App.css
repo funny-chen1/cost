@@ -29,6 +29,10 @@
   margin-top: 20px;
 }
 
+.mt40 {
+  margin-top: 40px;
+}
+
 .mr20 {
   margin-right: 20px;
 }
@@ -116,4 +120,63 @@
 .date {
   font-weight: bold;
   font-size: 18px;
+}
+
+.message-box {
+  height: 500px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.message-box .left {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  justify-content: start;
+}
+
+.message-box .right {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  justify-content: end;
+}
+
+.message-box .left p {
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px #ccc;
+  margin: 0;
+  max-width: 220px;
+  white-space: pre-line;
+}
+
+.message-box .right p {
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px #ccc;
+  margin: 0;
+  max-width: 220px;
+  white-space: pre-line;
+  background: #95ec69;
+}
+
+.input-box {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.loading {
+  width: 100%;
+  text-align: center;
 }

@@ -11,11 +11,12 @@ function Info() {
   const token = getLocal("token");
     const [state, setState] = useState({
         signature: '',
-        avatar: ''
+        avatar: '',
+        username: ''
     })
 
   useEffect(() => {
-    setState((pre) => ({...pre, avatar: userInfo.avatar, signature: userInfo.signature}));
+    setState((pre) => ({...pre, avatar: userInfo.avatar, signature: userInfo.signature, username: userInfo.username}));
   }, []);
 
   const handleSelect = async (file) => {
@@ -53,6 +54,17 @@ function Info() {
               </Button>
             </FilePicker>
           </Space>
+        </List.Item>
+        <List.Item>
+          昵称：
+          <Input
+            placeholder="请输入内容"
+            value={state.username}
+            disabled={true}
+            onChange={(val) => {
+              setState((pre) => ({...pre, username: val}));
+            }}
+          />
         </List.Item>
         <List.Item>
           个性签名：

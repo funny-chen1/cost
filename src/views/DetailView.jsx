@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { getDetail } from "../utils/service";
 import { useState, useEffect } from "react";
+import TabBar from "../components/TabBar/TabBar";
 import { Card } from "antd-mobile";
 
 function Detail() {
@@ -27,6 +28,7 @@ function Detail() {
 
   return (
     <div className="container">
+        <TabBar></TabBar>
       <Card title="账单详情">
         <div>
             <span>{obj.type_name}</span>

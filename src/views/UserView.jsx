@@ -5,9 +5,10 @@ import { Card, Toast, Button, Avatar, List, Space } from "antd-mobile";
 
 function User() {
   const userInfo = useSelector((state) => state.data.userInfo);
+  console.log(userInfo)
   const navigate = useNavigate()
 
-  const gopath = (path) => {
+  const goPath = (path) => {
     navigate(path)
   }
 
@@ -29,13 +30,15 @@ function User() {
         </List>
 
         <List mode="card" header="个人操作">
-          <List.Item onClick={() => {gopath('/info')}}>修改用户信息</List.Item>
-          <List.Item onClick={() => {gopath('/account')}}>重置密码</List.Item>
+          <List.Item onClick={() => {goPath('/info')}}>修改用户信息</List.Item>
+          <List.Item onClick={() => {goPath('/account')}}>重置密码</List.Item>
         </List>
 
-        <Button className="mt20" block color='primary' size='large' onClick={logout}>
-          退出登录
-        </Button>
+        <div className="mt40 text-center">
+          <Button color='primary' size='middle' onClick={logout}>
+            退出登录
+          </Button>
+        </div>
       </div>
     </>
   );

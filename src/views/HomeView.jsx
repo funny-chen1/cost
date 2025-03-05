@@ -87,17 +87,13 @@ function Home() {
   };
 
   useEffect(() => {
-    getBillList();
     init();
   }, []);
 
   useEffect(() => {
     getBillList();
-  }, [params.type_id]);
+  }, [params]);
 
-  useEffect(() => {
-    getBillList();
-  }, [params.date]);
 
   return (
     <div className="container">

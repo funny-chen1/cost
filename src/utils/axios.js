@@ -6,12 +6,14 @@ axios.defaults.baseURL = 'http://172.18.3.125:7009/'
 axios.defaults.withCredentials = true;
 
 axios.interceptors.request.use((config) => {
+    const token = localStorage.getItem('token');
+    if (!config.url.includes('deepseek')) {
+        config.headers["Content-Type"] = "multipart/form-data";
+        if (token) {
+            config.headers.Authorization = token
+        }
+    }
   // config.headers["Content-Type"] = "application/json";
-  config.headers["Content-Type"] = "multipart/form-data";
-  const token = localStorage.getItem('token');
-  if (token) {
-    config.headers.Authorization = token
-  }
   return config;
 });
 

@@ -1,19 +1,27 @@
 import { useState, useEffect, Suspense, lazy } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import TabBar from "./components/TabBar/TabBar";
 import routes from "./router/router";
-import { getLocal } from "./utils/public";
-import LoginView from "./views/LoginView";
 import { getUserInfo } from "./utils/service";
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 import { setUser } from "./store/actions";
+import Login from './views/LoginView'
+import { getLocal } from "./utils/public";
 
 function App() {
   const dispatch = useDispatch()
+  const { userInfo } = useSelector((state) => state.data);
   const [state, setState] = useState({
     isLogin: false,
   });
+
+
+  const Authentication = ({children}) => {
+    if (!getLocal('token')) {
+      return <Navigate to="/login" />
+    }
+    return children
+  }
 
   const init = async () => {
     const res = await getUserInfo();
@@ -33,12 +41,14 @@ function App() {
     <>
       <Suspense>
         <Routes>
+          <Route key="/login" path="/login" element={<Login />}></Route>
           {routes.map((route) => {
+            const Compoent = route.element
             return (
               <Route
                 key={route.path}
                 path={route.path}
-                Component={state.isLogin ? route.element : lazy(() => import('./views/LoginView'))}
+                element={<Authentication><Compoent /></Authentication>}
               />
             );
           })}
